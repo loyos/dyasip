@@ -2,9 +2,8 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use App\Pedidos;
-use Illuminate\Http\Request;
+use Request;
 
 class PedidosController extends Controller {
 
@@ -26,7 +25,7 @@ class PedidosController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('pedidos.create');
 	}
 
 	/**
@@ -36,7 +35,11 @@ class PedidosController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$input = Request::all();
+
+        Pedidos::create($input);
+
+		return redirect('pedidos');
 	}
 
 	/**

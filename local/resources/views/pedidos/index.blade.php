@@ -3,21 +3,53 @@
 
 @section('content')
 
-    <h1>Pedidos</h1>
-    <hr>
+    <div class="container-fluid">
+        <h1 style="float: left;">Pedidos</h1>
 
-    @foreach($pedidos as $p)
-        <article>
+        <a href="{{ url('pedidos/create') }}" class="btn btn-primary " style = 'float: right;'> Nuevo Pedido </a>
+        {{--<hr>--}}
 
-            <a href=" {{ url('/pedidos', $p->id ) }} "> <h2>{{ $p->number }}</h2></a>
+        <table class="table table-striped">
 
-            <div class="descripcion">
+            <th> Numero de Pedido</th>
+            <th> Fecha aproximada de entrega</th>
+            <th> Persona a cargo del pedido</th>
+            <th> Opciones de Pedido</th>
+            @foreach($pedidos as $p)
+                <tr>
+                    <td>
 
-                {{ $p->user_id }}
+                        <a href=" {{ url('/pedidos', $p->id ) }} "> <h4>{{ $p->id }}</h4></a>
+                    </td>
 
-            </div>
+                    <td>
+                        <div class="descripcion">
 
-        </article>
-    @endforeach
+                            {{--{{ $p->user_id }}--}}
+                            Cualquier fecha
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="descripcion">
+
+                            {{--{{ $p->user_id }}--}}
+                            Cualquier persona
+                        </div>
+                    </td>
+                    <td>
+                        <div class="descripcion">
+
+                            <a href="{{ url('/pedidos', $p->id) }}"> Ver  </a>
+                            <a href="{{ url('/pedidos/edit', $p->id) }}"> Editar </a>
+                            <a href="{{ url('/pedidos/edit', $p->id) }}"> Eliminar </a>
+
+                        </div>
+                    </td>
+
+                </tr>
+            @endforeach
+        </table>
+    </div>
 
 @stop

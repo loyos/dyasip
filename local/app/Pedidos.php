@@ -4,6 +4,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pedidos extends Model {
 
-	//
+    protected $fillable = ['cantidad', 'product_id'];
 
 }

@@ -13,12 +13,18 @@
 
 //Route::get('/', 'WelcomeController@index');
 
-Route::get('/	', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 
 Route::get('about', 'PagesController@about');
 
-Route::get('pedidos', 'PedidosController@index');
-Route::get('pedidos/{id}', 'PedidosController@show');
+//Route::get('pedidos', 'PedidosController@index');
+//Route::get('pedidos/create', 'PedidosController@create');
+//Route::get('pedidos/{id}', 'PedidosController@show');
+//
+//Route::post('pedidos', 'PedidosController@store');
+
+Route::resource('pedidos', 'PedidosController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

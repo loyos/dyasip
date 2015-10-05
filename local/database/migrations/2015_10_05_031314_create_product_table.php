@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePedidosTable extends Migration {
+class CreateProductTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,13 @@ class CreatePedidosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('pedidos', function(Blueprint $table)
+		Schema::create('productos', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('nombre')->unique();
+			$table->string('descripcion');
+			$table->integer('disponibles');
+			$table->float('precio');
 			$table->timestamps();
 		});
 	}
@@ -26,7 +30,7 @@ class CreatePedidosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('pedidos');
+		Schema::drop('productos');
 	}
 
 }

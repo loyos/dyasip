@@ -3,10 +3,43 @@
 
 @section('content')
 
-    <h1>{{$pedido->id}}</h1>
-    <hr>
+    <div class="container-fluid">
 
-    {{$pedido->number}}
+        <h1>{{ "Pedido Nro ". $pedido->id}}</h1>
+        <hr>
+
+        <table class = "table table-striped">
+            <tr>
+                <th>
+                    Nombre de Producto
+                </th>
+
+                <th>
+                    Cantidad
+                </th>
+
+                <th>
+                    Precio
+                </th>
+
+                <th>
+                    Total
+                </th>
+            </tr>
+
+            <tr>
+                <td> {{$pedido->product_id}} </td>
+                <td> {{$pedido->cantidad}} </td>
+                <td> {{'1231' }} </td>
+            </tr>
+        </table>
+
+
+        {{$pedido->number}}
+
+    </div>
+
+
 
 
 @stop

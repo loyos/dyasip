@@ -15,8 +15,9 @@ class CreatePedidosTable extends Migration {
 		Schema::create('pedidos', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('number')->unique();
 			$table->string('user_id');
+			$table->string('product_id');
+			$table->string('cantidad');
 			$table->timestamps();
 		});
 	}
@@ -28,7 +29,7 @@ class CreatePedidosTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('pedidos');
 	}
 
 }
