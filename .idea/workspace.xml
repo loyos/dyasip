@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="53514354-52af-4413-86ee-62a720a17b11" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/app/Http/Controllers/PedidosController.php" afterPath="$PROJECT_DIR$/local/app/Http/Controllers/PedidosController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/resources/views/pedidos/create.blade.php" afterPath="$PROJECT_DIR$/local/resources/views/pedidos/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/local/resources/views/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/resources/views/pedidos/index.blade.php" afterPath="$PROJECT_DIR$/local/resources/views/pedidos/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local/resources/views/pedidos/show.blade.php" afterPath="$PROJECT_DIR$/local/resources/views/pedidos/show.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dyasip.iws" />
@@ -58,14 +56,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PedidosController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PedidosController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/PedidosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39492753">
-              <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+            <state vertical-scroll-proportion="-11.230769">
+              <caret line="59" column="64" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
               <folding>
                 <element signature="e#39#61#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/local/config/view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/local/resources/views/pedidos/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.576923">
-              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.61445785">
+              <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -144,7 +152,6 @@
         <option value="$PROJECT_DIR$/local/database/migrations/2015_09_25_061128_create_pedidos_table.php" />
         <option value="$PROJECT_DIR$/local/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/local/app/Pedidos.php" />
-        <option value="$PROJECT_DIR$/local/resources/views/pedidos/show.blade.php" />
         <option value="$PROJECT_DIR$/local/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/local/resources/views/pedidos/edit.blade.php" />
         <option value="$PROJECT_DIR$/local/resources/views/pedidos/create.blade.php" />
@@ -152,6 +159,7 @@
         <option value="$PROJECT_DIR$/local/resources/views/pedidos/index.blade.php" />
         <option value="$PROJECT_DIR$/local/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/local/app/Http/Controllers/PedidosController.php" />
+        <option value="$PROJECT_DIR$/local/resources/views/pedidos/show.blade.php" />
       </list>
     </option>
   </component>
@@ -791,14 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/resources/views/pedidos/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/local/database/migrations/2015_09_25_061128_create_pedidos_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.1153846">
@@ -896,13 +896,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/local/config/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/local/app/Http/Controllers/PedidosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39492753">
-          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+        <state vertical-scroll-proportion="-11.230769">
+          <caret line="59" column="64" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
           <folding>
             <element signature="e#39#61#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/resources/views/pedidos/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61445785">
+          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>

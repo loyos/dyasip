@@ -57,7 +57,9 @@ class PedidosController extends Controller {
 
 		$pedido = Pedidos::findorFail($id);
 
-		return view('pedidos.show', compact('pedido'));
+        $productos = Productos::findorFail($pedido->product_id);
+
+		return view('pedidos.show', compact('pedido','productos'));
 	}
 
 	/**

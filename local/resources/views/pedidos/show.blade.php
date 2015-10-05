@@ -28,7 +28,7 @@
             </tr>
 
             <tr>
-                <td> {{$pedido->product_id}} </td>
+                <td> {{$productos->nombre}} </td>
                 <td> {{$pedido->cantidad}} </td>
                 <td> {{'1231' }} </td>
             </tr>
