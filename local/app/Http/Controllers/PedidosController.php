@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Pedidos;
+use App\Productos;
 use Request;
 
 class PedidosController extends Controller {
@@ -15,6 +16,7 @@ class PedidosController extends Controller {
 	public function index()
 	{
 		$pedidos = Pedidos::all();
+
 		return view('pedidos.index', compact('pedidos'));
 	}
 
@@ -25,7 +27,9 @@ class PedidosController extends Controller {
 	 */
 	public function create()
 	{
-		return view('pedidos.create');
+        $productos = Productos::lists('nombre','id');
+
+		return view('pedidos.create', compact('productos'));
 	}
 
 	/**
@@ -64,7 +68,11 @@ class PedidosController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$pedido = Pedidos::findOrFail($id);
+
+        $productos = Productos::lists('nombre','id');
+
+        return view('pedidos.edit', compact('pedido','productos'));
 	}
 
 	/**
@@ -74,9 +82,13 @@ class PedidosController extends Controller {
 	 * @return Response
 	 */
 	public function update($id)
-	{
-		//
-	}
+    {
+        $pedido = Pedidos::findOrFail($id);
+
+        $pedido->update(Request::all());
+
+        return redirect('pedidos');
+    }
 
 	/**
 	 * Remove the specified resource from storage.
@@ -86,7 +98,12 @@ class PedidosController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$pedido = Pedidos::findOrFail($id);
+
+        $pedido->delete();
+
+        return redirect('pedidos');
+
 	}
 
 }

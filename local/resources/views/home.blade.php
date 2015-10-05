@@ -23,11 +23,13 @@
 
 					<div class="row">
 						<div class="col-sm-6 col-md-6 col-lg-6">
-							<a class=" btn btn-primary " href="{{ url('pedidos/create')  }}"> Editar mi perfil </a>
+							{{--<a class=" btn btn-primary " href="{{ url('pedidos/create')  }}"> Editar mi perfil </a>--}}
+							<a class=" btn btn-primary " href="#"> Editar mi perfil </a>
 						</div>
 
 						<div class="col-sm-6 col-md-6 col-lg-6">
-							<a class=" btn btn-primary " href="{{ url('pedidos/create')  }}"> Ver Productos disponibles </a>
+							{{--<a class=" btn btn-primary " href="{{ url('pedidos/create')  }}"> Ver Productos disponibles </a>--}}
+							<a class=" btn btn-primary " href="#"> Ver Productos disponibles </a>
 						</div>
 
 					</div>

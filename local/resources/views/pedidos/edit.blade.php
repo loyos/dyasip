@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Nuevo Pedido</div>
+                    <div class="panel-heading">{{ 'Editar Pedido N '. $pedido->id  }}</div>
                     <div class="panel-body">
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
@@ -19,9 +19,8 @@
                             </div>
                         @endif
 
-                        {!! Form::open(['class' => 'form-horizontal', 'url' => 'pedidos']) !!}
-
-                        @include('pedidos.form', ['submitbutton' => 'Realizar Pedido']);
+                         {!! Form::model($pedido, ['class' => 'form-horizontal', 'action'=> ['PedidosController@update', $pedido->id], 'method'=> 'PATCH']) !!}
+                        @include('pedidos.form', ['submitbutton' => 'Editar Pedido']);
                     </div>
                 </div>
             </div>

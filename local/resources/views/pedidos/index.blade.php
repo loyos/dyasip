@@ -40,9 +40,13 @@
                     <td>
                         <div class="descripcion">
 
-                            <a href="{{ url('/pedidos', $p->id) }}"> Ver  </a>
-                            <a href="{{ url('/pedidos/edit', $p->id) }}"> Editar </a>
-                            <a href="{{ url('/pedidos/edit', $p->id) }}"> Eliminar </a>
+                            <a href="{{ url('/pedidos', $p->id) }}"> Ver | </a>
+                            <a href="{{ url('/pedidos/'.$p->id.'/edit' ) }}"> Editar </a>
+                            {!! Form::open(['action' => ['PedidosController@destroy', $p->id], 'method' => 'delete']) !!}
+
+                                    {!! Form::submit('Eliminar', ['class' => 'btn btn-primary']) !!}
+
+                            {!! Form::close() !!}
 
                         </div>
                     </td>
