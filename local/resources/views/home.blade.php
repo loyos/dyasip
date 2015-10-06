@@ -10,12 +10,17 @@
 				<div class="panel-body">
 					<div class="row">
 					    <div class="col-sm-6 col-md-6 col-lg-6">
-							<h3>Pedidos </h3>
-					        No tienes Pedidos realizados
+							<h3>Mis Pedidos </h3>
+								@if(!empty($pedidos))
+									Tienes {{ $pedidos }} pedidos! <br><br>
+								<a class=" btn btn-primary " href="{{ url('pedidos')  }}"> Ir a Mis Pedidos </a>
+								@else
+									No tienes Pedidos realizados
+								@endif
 					    </div>
 
 						<div class="col-sm-6 col-md-6 col-lg-6">
-							<a class=" btn btn-primary " href="{{ url('pedidos/create')  }}"> Realizar Pedido </a>
+							<a class=" btn btn-primary " style="margin-top: 55px;" href="{{ url('pedidos/create')  }}"> Realizar Pedido </a>
 						</div>
 					</div>
 
@@ -29,7 +34,7 @@
 
 						<div class="col-sm-6 col-md-6 col-lg-6">
 							{{--<a class=" btn btn-primary " href="{{ url('pedidos/create')  }}"> Ver Productos disponibles </a>--}}
-							<a class=" btn btn-primary " href="#"> Ver Productos disponibles </a>
+							<a class=" btn btn-primary " href="{{ url('productos') }}"> Ver Productos disponibles </a>
 						</div>
 
 					</div>

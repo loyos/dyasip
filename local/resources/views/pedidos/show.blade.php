@@ -28,9 +28,10 @@
             </tr>
 
             <tr>
-                <td> {{$productos->nombre}} </td>
-                <td> {{$pedido->cantidad}} </td>
-                <td> {{'1231' }} </td>
+                <td> {{ $productos->nombre }} </td>
+                <td> {{ $pedido->cantidad }} </td>
+                <td> {{$productos->precio}} </td>
+                <td> {{ ($productos->precio) * ($pedido->cantidad) }} </td>
             </tr>
         </table>
 

@@ -26,6 +26,8 @@ Route::get('about', 'PagesController@about');
 
 Route::resource('pedidos', 'PedidosController');
 
+Route::resource('productos', 'ProductosController');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

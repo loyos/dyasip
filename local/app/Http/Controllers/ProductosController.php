@@ -2,12 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Pedidos;
 use App\Productos;
 use Request;
-use Auth;
 
-class PedidosController extends Controller {
+class ProductosController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,10 +14,9 @@ class PedidosController extends Controller {
 	 */
 	public function index()
 	{
+		$productos = Productos::all();
 
-        $pedidos = Pedidos::where('user_id', Auth::user()->id)->get();
-
-		return view('pedidos.index', compact('pedidos'));
+		return view('productos.index', compact('productos'));
 	}
 
 	/**
@@ -29,10 +26,7 @@ class PedidosController extends Controller {
 	 */
 	public function create()
 	{
-
-        $productos = Productos::lists('nombre','id');
-
-		return view('pedidos.create', compact('productos'));
+		return view('productos.create');
 	}
 
 	/**
@@ -44,11 +38,9 @@ class PedidosController extends Controller {
 	{
 		$input = Request::all();
 
-        $input['user_id'] = Auth::user()->id;
+		Productos::create($input);
 
-        Pedidos::create($input);
-
-		return redirect('pedidos');
+		return redirect('productos');
 	}
 
 	/**
@@ -59,12 +51,7 @@ class PedidosController extends Controller {
 	 */
 	public function show($id)
 	{
-
-		$pedido = Pedidos::findorFail($id);
-
-        $productos = Productos::findorFail($pedido->product_id);
-
-		return view('pedidos.show', compact('pedido','productos'));
+		//
 	}
 
 	/**
@@ -75,11 +62,9 @@ class PedidosController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$pedido = Pedidos::findOrFail($id);
+		$producto = Productos::findOrFail($id);
 
-        $productos = Productos::lists('nombre','id');
-
-        return view('pedidos.edit', compact('pedido','productos'));
+		return view('productos.edit', compact('producto'));
 	}
 
 	/**
@@ -89,13 +74,13 @@ class PedidosController extends Controller {
 	 * @return Response
 	 */
 	public function update($id)
-    {
-        $pedido = Pedidos::findOrFail($id);
+	{
+		$producto = Productos::findOrFail($id);
 
-        $pedido->update(Request::all());
+		$producto->update(Request::all());
 
-        return redirect('pedidos');
-    }
+		return redirect('productos');
+	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -105,12 +90,11 @@ class PedidosController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$pedido = Pedidos::findOrFail($id);
+		$productos = Productos::findOrFail($id);
 
-        $pedido->delete();
+		$productos->delete();
 
-        return redirect('pedidos');
-
+		return redirect('productos');
 	}
 
 }

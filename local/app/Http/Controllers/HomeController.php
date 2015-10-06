@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\Pedidos;
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller {
 
 	/*
@@ -30,7 +32,10 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+
+		$pedidos = Pedidos::where('user_id', Auth::user()->id)->count();
+
+		return view('home', compact('pedidos'));
 	}
 
 }
