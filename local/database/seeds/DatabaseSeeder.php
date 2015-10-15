@@ -20,10 +20,40 @@ class DatabaseSeeder extends Seeder {
 
 //		 $this->call('UserTableSeeder');
 
-		$this->call('PedidosTableSeeder');
         $this->call('UsersTableSeeder');
         $this->call('ProductosTableSeeder');
+//        $this->call('PedidosTableSeeder');
+
 	}
+
+}
+
+class UsersTableSeeder extends Seeder {
+
+    public function run()
+    {
+        $faker = Faker::create();
+
+        DB::table('users')->delete();
+
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make("123123"),
+        ]);
+
+        for( $i = 0; $i< 10; $i++ )
+        {
+
+            User::create([
+                'name' => $faker->unique()->name(),
+//                'id' => $faker->unique()->randomNumber($nbDigits = 1),
+                'email' => $faker->unique()->email(),
+                'password' => Hash::make("123123"),
+            ]);
+            //        $table->string('number')->unique();
+        }
+    }
 
 }
 
@@ -39,34 +69,12 @@ class PedidosTableSeeder extends Seeder {
         {
 
             Pedidos::create([
-                'user_id' => $faker->unique()->randomNumber($nbDigits = 1),
-                'product_id' => $faker->word(),
-                'cantidad' => $faker->randomNumber($nbDigits = 2),
+//                'user_id' => $faker->unique()->randomNumber($nbDigits = 1),
+                  'user_id' => 1,
+//                'product_id' => $faker->word(),
+//                'cantidad' => $faker->randomNumber($nbDigits = 2),
 
 
-            ]);
-            //        $table->string('number')->unique();
-        }
-    }
-
-}
-
-class UsersTableSeeder extends Seeder {
-
-    public function run()
-    {
-        $faker = Faker::create();
-
-        DB::table('users')->delete();
-
-        for( $i = 0; $i< 10; $i++ )
-        {
-
-            User::create([
-                'name' => $faker->unique()->name(),
-//                'id' => $faker->unique()->randomNumber($nbDigits = 1),
-                'email' => $faker->unique()->email(),
-                'password' => Hash::make("123123"),
             ]);
             //        $table->string('number')->unique();
         }

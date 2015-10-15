@@ -4,11 +4,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pedidos extends Model {
 
-    protected $fillable = ['cantidad', 'product_id', 'user_id'];
+    protected $fillable = ['user_id'];
 
     public function productos()
     {
-        return $this->hasMany('App\Productos');
+        return $this->hasMany('App\Pedido_Productos');
     }
 
     public function user()

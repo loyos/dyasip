@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePedidosTable extends Migration {
+class CreatePedidoProductosTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,18 +12,14 @@ class CreatePedidosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('pedidos', function(Blueprint $table)
+		Schema::create('pedido_productos', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('user_id')->unsigned();
+			$table->string('pedido_id');
+			$table->string('user_id');
+			$table->string('producto_id');
+			$table->string('cantidad');
 			$table->timestamps();
-
-
-			$table->foreign('user_id')
-				->references('id')
-				->on('users')
-				->onDelete('cascade');
-
 		});
 	}
 
@@ -34,7 +30,7 @@ class CreatePedidosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('pedidos');
+		Schema::drop('pedido_productos');
 	}
 
 }

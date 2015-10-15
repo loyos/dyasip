@@ -27,12 +27,19 @@
                 </th>
             </tr>
 
-            <tr>
-                <td> {{ $productos->nombre }} </td>
-                <td> {{ $pedido->cantidad }} </td>
-                <td> {{$productos->precio}} </td>
-                <td> {{ ($productos->precio) * ($pedido->cantidad) }} </td>
-            </tr>
+            @foreach($productos as $p)
+
+                <?php  //dd($p); ?>
+
+                <tr>
+                    <td> {{ $p['nombre']}} </td>
+                    <td> {{ $p['cantidad']. ' Unidades' }} </td>
+                    <td> {{$p['precio'] . ' $'}} </td>
+                    <td> {{ ($p['precio']) * ($p['cantidad']) . ' $' }} </td>
+                </tr>
+
+            @endforeach
+
         </table>
 
 

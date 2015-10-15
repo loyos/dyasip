@@ -2,8 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\PedidoProductos;
 use App\Pedidos;
 use App\Productos;
+use App\User;
 use Request;
 use Auth;
 
@@ -30,7 +32,9 @@ class PedidosController extends Controller {
 	public function create()
 	{
 
-        $productos = Productos::lists('nombre','id');
+      //  $productos = Productos::lists('nombre','id');  for input select
+
+		$productos = Productos::all();
 
 		return view('pedidos.create', compact('productos'));
 	}
@@ -42,11 +46,28 @@ class PedidosController extends Controller {
 	 */
 	public function store()
 	{
-		$input = Request::all();
+
+		$input = Request::except('_token');
 
         $input['user_id'] = Auth::user()->id;
 
-        Pedidos::create($input);
+        $pedido_info = Pedidos::create($input); // saving pedido and getting the id of that entry
+
+		$pedido_info->id;
+
+		foreach($input = Request::except('_token')  as $product_id => $cantidad){
+
+			if(!empty($cantidad)) {
+				$pedido_producto = array(
+					'pedido_id' => $pedido_info->id,
+					'user_id' => Auth::user()->id,
+					'cantidad' => $cantidad,
+					'producto_id' => $product_id
+				);
+
+				PedidoProductos::create($pedido_producto);
+			}
+		}
 
 		return redirect('pedidos');
 	}
@@ -62,7 +83,20 @@ class PedidosController extends Controller {
 
 		$pedido = Pedidos::findorFail($id);
 
-        $productos = Productos::findorFail($pedido->product_id);
+        $pedido_productos = PedidoProductos::where('pedido_id', $id)->get();
+
+		foreach($pedido_productos as $p){
+
+			$producto_datos = Productos::find($p->producto_id);
+
+			$productos[] = array(
+				'nombre' => $producto_datos->nombre,
+				'descripcion' => $producto_datos->descripcion,
+				'cantidad' => $p->cantidad,
+				'precio' => $producto_datos->precio
+			);
+
+		}
 
 		return view('pedidos.show', compact('pedido','productos'));
 	}
