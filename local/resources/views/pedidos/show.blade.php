@@ -32,23 +32,26 @@
                         Unidad
                     </td>
                     <td>
-                        {{ format_price($p['precio']) }}
+                        {{ '$ ' . number_format((float)$p['precio'], 2, '.', '')  }}
+{{--                        {{ format_price($p['precio']) }}--}}
                     </td>
                     <td>
                         16%
                     </td>
                     <td>
-                        {{ format_price_iva($p['precio']) }}
+{{--                        {{ format_price_iva($p['precio']) }}--}}
+                        {{ '$ ' . number_format((float)$p['precio'] * 1.16, 2, '.', '')  }}
                     </td>
                     <td>
                         {{ $p['cantidad'] }}
                     </td>
                    <td>
-                       {{format_price( $total_prod = $p['precio'] * 1.16 * $p['cantidad']) }}
+                       {{ '$ '. number_format((float)$total_prod = $p['precio'] * 1.16 * $p['cantidad'], 2, '.', '')  }}
+                       {{--{{format_price( $total_prod = $p['precio'] * 1.16 * $p['cantidad']) }}--}}
                    </td>
                 </tr>
 
-              <?php  $total = $total + $total_prod ; ?>
+              <?php  $total = $total + $total_prod; ?>
             @endforeach
             <td>
 
@@ -62,7 +65,11 @@
                 <b>Total:</b>
             </td>
             <td>
-                <b>{{  format_price($total) }} </b>
+                <b>
+                    {{ '$ '. number_format((float)$total , 2, '.', '')  }}
+                    {{--{{  format_price($total) }}--}}
+
+                </b>
             </td>
             <tr>
                 <td colspan="8">

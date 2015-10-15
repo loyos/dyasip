@@ -30,13 +30,15 @@
                 Unidad
             </td>
             <td>
-                {{ format_price($p->precio) }}
+                {{ '$ ' . number_format((float)$p->precio, 2, '.', '')  }}
+{{--                {{ format_price($p->precio) }}--}}
             </td>
             <td>
                 16%
             </td>
             <td>
-                {{ format_price_iva($p->precio) }}
+                {{ '$ ' . number_format((float)$p->precio * 1.16, 2, '.', '')  }}
+                {{--{{ format_price_iva($p->precio) }}--}}
             </td>
             <td>
                 {{ $p->disponibles }}
