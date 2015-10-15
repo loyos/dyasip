@@ -34,8 +34,10 @@
 
 						<div class="col-sm-6 col-md-6 col-lg-6">
 							{{--<a class=" btn btn-primary " href="{{ url('pedidos/create')  }}"> Ver Productos disponibles </a>--}}
-							<a class=" btn btn-primary " href="{{ url('productos') }}"> Ver Productos disponibles </a>
+							<a class=" btn btn-primary " href="{{ url('productos') }}"> Ver Catálogo de Productos </a>
 						</div>
+
+						{{--{{ Auth::user()->rol }}--}}{{--  // just for test--}}
 
 					</div>
 

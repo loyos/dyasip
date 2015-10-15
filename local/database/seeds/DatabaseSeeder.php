@@ -40,6 +40,7 @@ class UsersTableSeeder extends Seeder {
             'name' => 'admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make("123123"),
+            'rol' => 'admin'
         ]);
 
         for( $i = 0; $i< 10; $i++ )
@@ -50,6 +51,7 @@ class UsersTableSeeder extends Seeder {
 //                'id' => $faker->unique()->randomNumber($nbDigits = 1),
                 'email' => $faker->unique()->email(),
                 'password' => Hash::make("123123"),
+                'rol' => 'sucursal'
             ]);
             //        $table->string('number')->unique();
         }

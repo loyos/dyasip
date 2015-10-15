@@ -12,9 +12,11 @@
         <table class="table table-striped">
 
             <th> Numero de Pedido</th>
-            <th> Fecha aproximada de entrega</th>
-            <th> Persona a cargo del pedido</th>
-            <th> Opciones de Pedido</th>
+            <th> Fecha </th>
+            <th> Ingresado por</th>
+            <th>Estado</th>
+            <th style="text-align: center;"> Opciones de Pedido</th>
+
             @foreach($pedidos as $p)
                 <tr>
                     <td>
@@ -24,24 +26,22 @@
 
                     <td>
                         <div class="descripcion">
-
-                            {{--{{ $p->user_id }}--}}
-                            Cualquier fecha
-
+                         {{ $p->created_at }}
                         </div>
                     </td>
                     <td>
                         <div class="descripcion">
-
-                            {{--{{ $p->user_id }}--}}
-                            Cualquier persona
+                            {{ $p->user->name }}
                         </div>
                     </td>
                     <td>
+
+                    </td>
+                    <td style = "text-align: center;">
                         <div class="descripcion">
 
-                            <a href="{{ url('/pedidos', $p->id) }}"> Ver | </a>
-                            <a href="{{ url('/pedidos/'.$p->id.'/edit' ) }}"> Editar </a>
+                            <a href="{{ url('/pedidos', $p->id) }}">   Ver </a>
+                            {{--<a href="{{ url('/pedidos/'.$p->id.'/edit' ) }}"> Editar </a>--}}
                             {!! Form::open(['action' => ['PedidosController@destroy', $p->id], 'method' => 'delete']) !!}
 
                                     {!! Form::submit('Eliminar', ['class' => 'btn btn-primary']) !!}

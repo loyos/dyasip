@@ -8,32 +8,49 @@
 
     <table style="width: 100%;" class = "table table-striped">
         <tr>
-            <th style="text-align: center;"> Producto</th>
-            <th style="text-align: center;"> Cantidad</th>
+            <th style="text-align: left;"> Código</th>
+            <th style="text-align: left;"> Nombre Producto</th>
+            <th style="text-align: left;"> Medida</th>
+            <th style="text-align: left;"> Valor</th>
+            <th style="text-align: left;"> IVA</th>
+            <th style="text-align: left;"> Valor + IVA</th>
+            <th style="text-align: left;"> Disponible </th>
+            <th style="text-align: left;"> Cantidad</th>
         </tr>
-    </table>
 
     @foreach($productos as $p)
-        <div class="row">
-            <div class="col-md-4 col-lg-offset-1">
-                {{--<input type="text" class="form-control" name="name" value="{{ old('name') }}">--}}
-                <div class="form-group">
-                    {!! Form::label('product_id', $p->nombre, ['class' => 'form-control', 'style' =>'text-align:center;']) !!}
-                </div>
-            </div>
-
-            <div class="col-md-4 col-lg-offset-2">
-                {{--<input type="email" class="form-control" name="email" value="{{ old('email') }}">--}}
-                <div class="form-group">
-                    {!! Form::text($p->id, null, ['class' => 'form-control']) !!}
-                </div>
-            </div>
-        </div>
+        <tr>
+            <td>
+                {{ $p->id }}
+            </td>
+            <td>
+                {!! Form::label('product_id', $p->nombre ) !!}
+            </td>
+            <td>
+                Unidad
+            </td>
+            <td>
+                {{ format_price($p->precio) }}
+            </td>
+            <td>
+                16%
+            </td>
+            <td>
+                {{ format_price_iva($p->precio) }}
+            </td>
+            <td>
+                {{ $p->disponibles }}
+            </td>
+            <td>
+                {!! Form::text($p->id, null, ['class' => 'form-control']) !!}
+            </td>
+        </tr>
     @endforeach
+    </table>
 </div>
 
 <div class="form-group">
-    <div class="col-md-6 col-md-offset-4">
+    <div class="col-md-2 col-md-offset-5">
         {!! Form::submit($submitbutton, ['class' => 'btn btn-primary']) !!}
     </div>
 </div>

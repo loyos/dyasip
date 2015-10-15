@@ -20,6 +20,9 @@ class PedidosController extends Controller {
 	{
 
         $pedidos = Pedidos::where('user_id', Auth::user()->id)->get();
+		$pedidos->load('User');
+
+//		dd($pedidos);
 
 		return view('pedidos.index', compact('pedidos'));
 	}
@@ -90,6 +93,7 @@ class PedidosController extends Controller {
 			$producto_datos = Productos::find($p->producto_id);
 
 			$productos[] = array(
+				'id' => $producto_datos->id,
 				'nombre' => $producto_datos->nombre,
 				'descripcion' => $producto_datos->descripcion,
 				'cantidad' => $p->cantidad,
