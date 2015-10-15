@@ -35,13 +35,13 @@
                         </div>
                     </td>
                     <td>
-
+                        {{ $p->estatus }}
                     </td>
                     <td style = "text-align: center;">
                         <div class="descripcion">
 
-                            <a href="{{ url('/pedidos', $p->id) }}">   Ver </a>
-                            {{--<a href="{{ url('/pedidos/'.$p->id.'/edit' ) }}"> Editar </a>--}}
+                            <a href="{{ url('/pedidos', $p->id) }}">   Ver | </a>
+                            <a href="{{ url('/pedidos/'.$p->id.'/edit' ) }}"> Editar </a>
                             {!! Form::open(['action' => ['PedidosController@destroy', $p->id], 'method' => 'delete']) !!}
 
                                     {!! Form::submit('Eliminar', ['class' => 'btn btn-primary']) !!}

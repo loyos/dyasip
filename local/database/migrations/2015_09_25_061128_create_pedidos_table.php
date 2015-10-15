@@ -16,6 +16,8 @@ class CreatePedidosTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
+			$table->string('estatus');
+			$table->text('comentario');
 			$table->timestamps();
 
 

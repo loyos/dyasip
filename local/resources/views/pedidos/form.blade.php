@@ -8,7 +8,7 @@
 
     <table style="width: 100%;" class = "table table-striped">
         <tr>
-            <th style="text-align: left;"> Código</th>
+            <th style="text-align: left;"> CÃ³digo</th>
             <th style="text-align: left;"> Nombre Producto</th>
             <th style="text-align: left;"> Medida</th>
             <th style="text-align: left;"> Valor</th>
@@ -46,6 +46,14 @@
             </td>
         </tr>
     @endforeach
+        <tr>
+            <td colspan="8">
+                <div class="">
+                    {!! Form::label('comentario', 'Comentario:') !!}
+                    {!! Form::textarea('comentario', null, ['class' => 'form-control','placeholder' => 'Necesitas algun producto que no este en esta lista?, tienes algun comentario?']) !!}
+                </div>
+            </td>
+        </tr>
     </table>
 </div>
 

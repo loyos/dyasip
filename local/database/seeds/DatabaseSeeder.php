@@ -73,6 +73,8 @@ class PedidosTableSeeder extends Seeder {
             Pedidos::create([
 //                'user_id' => $faker->unique()->randomNumber($nbDigits = 1),
                   'user_id' => 1,
+                  'comentario' => 'Aquí va un comentario',
+                  'estatus' => 'Pendiente'
 //                'product_id' => $faker->word(),
 //                'cantidad' => $faker->randomNumber($nbDigits = 2),
 

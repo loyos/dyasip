@@ -10,7 +10,7 @@
 
         <table style="width: 100%;" class = "table table-striped" id="pr">
             <tr>
-                <th style="text-align: left;"> Código</th>
+                <th style="text-align: left;"> CÃ³digo</th>
                 <th style="text-align: left;"> Nombre Producto</th>
                 <th style="text-align: left;"> Medida</th>
                 <th style="text-align: left;"> Valor</th>
@@ -51,7 +51,7 @@
               <?php  $total = $total + $total_prod ; ?>
             @endforeach
             <td>
-                <button class="boton">Export</button>
+
             </td>
             <td></td>
             <td></td>
@@ -64,16 +64,22 @@
             <td>
                 <b>{{  format_price($total) }} </b>
             </td>
+            <tr>
+                <td colspan="8">
+                    <div class="form-group">
+                        {!! Form::label('comentario', 'Comentario:') !!}
+                        {!! Form::textarea('comentario', $pedido->comentario, ['class' => 'form-control', 'disabled' => 'disabled']) !!}
+                    </div>
+                </td>
+            </tr>
         </table>
+
+        <button class="boton">Descargar Excel</button>
 
     </div>
 
 
     <script>
-
-        $(document).ready(function () {
-            alert('probando');
-        });
 
         $(".boton").click(function(){
             $("#pr").table2excel({

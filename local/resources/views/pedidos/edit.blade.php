@@ -20,7 +20,30 @@
                         @endif
 
                          {!! Form::model($pedido, ['class' => 'form-horizontal', 'action'=> ['PedidosController@update', $pedido->id], 'method'=> 'PATCH']) !!}
-                        @include('pedidos.form', ['submitbutton' => 'Editar Pedido']);
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <?php //    dd($pedido); ?>
+                                {!! Form::label('estatus', 'Estatus:') !!}
+                                {!! Form::select('estatus',
+                            [  'Despachado' => 'Despachado',
+                                'Pendiente' => 'Pendiente',
+                                'Atrasado' => 'Atrasado'
+                             ], null,
+                            ['class' => 'form-control ']) !!}
+
+                            {!! Form::label('comentario', 'Comentario:') !!}
+                            {!! Form::textarea('comentario', null, ['class' => 'form-control','placeholder' => 'Necesitas algun producto que no este en esta lista?, tienes algun comentario?']) !!}
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-2 col-md-offset-5">
+                        {!! Form::submit('Editar', ['class' => 'btn btn-primary']) !!}
+                    </div>
+                </div>
+
+
+            {{--@include('pedidos.form', ['submitbutton' => 'Editar Pedido']);--}}
                     </div>
                 </div>
             </div>

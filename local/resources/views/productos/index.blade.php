@@ -13,7 +13,7 @@
         {{--<hr>--}}
 
         <table class="table table-striped">
-            <th>Código</th>
+            <th>CÃ³digo</th>
             <th> Nombre</th>
             <th> Unidad</th>
             <th> Valor</th>

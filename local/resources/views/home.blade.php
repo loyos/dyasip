@@ -17,7 +17,12 @@
 								@else
 									No tienes Pedidos realizados
 								@endif
-					    </div>
+							<br>
+							<br>
+							@if(Auth::user()->rol == 'admin')
+								<a class=" btn btn-primary " href="{{ url('pedidos')  }}"> Ver todos los Pedidos (admin) </a>
+					    	@endif
+						</div>
 
 						<div class="col-sm-6 col-md-6 col-lg-6">
 							<a class=" btn btn-primary " style="margin-top: 55px;" href="{{ url('pedidos/create')  }}"> Realizar Pedido </a>

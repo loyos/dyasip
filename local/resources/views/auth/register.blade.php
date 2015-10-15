@@ -54,7 +54,9 @@
 							<div class="col-md-6">
 
 								{!! Form::select('rol',
-								[  'sucursal' => 'Sucursal'], null,
+								[  'sucursal' => 'Sucursal',
+									'admin' => 'admin'
+								], null,
 								['class' => 'form-control ']) !!}
 							</div>
 						</div>

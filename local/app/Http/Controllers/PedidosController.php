@@ -18,8 +18,12 @@ class PedidosController extends Controller {
 	 */
 	public function index()
 	{
+		if(Auth::user()->rol == 'admin'){
+			$pedidos = Pedidos::all();
+		}else{
+			$pedidos = Pedidos::where('user_id', Auth::user()->id)->get();
+		}
 
-        $pedidos = Pedidos::where('user_id', Auth::user()->id)->get();
 		$pedidos->load('User');
 
 //		dd($pedidos);
@@ -53,12 +57,13 @@ class PedidosController extends Controller {
 		$input = Request::except('_token');
 
         $input['user_id'] = Auth::user()->id;
+		$input['estatus'] = "Pendiente";
 
         $pedido_info = Pedidos::create($input); // saving pedido and getting the id of that entry
 
 		$pedido_info->id;
 
-		foreach($input = Request::except('_token')  as $product_id => $cantidad){
+		foreach($input = Request::except('_token','comentario')  as $product_id => $cantidad){
 
 			if(!empty($cantidad)) {
 				$pedido_producto = array(
@@ -67,6 +72,8 @@ class PedidosController extends Controller {
 					'cantidad' => $cantidad,
 					'producto_id' => $product_id
 				);
+
+
 
 				PedidoProductos::create($pedido_producto);
 			}
@@ -113,11 +120,25 @@ class PedidosController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$pedido = Pedidos::findOrFail($id);
+		$pedido = Pedidos::findorFail($id);
 
-        $productos = Productos::lists('nombre','id');
+		$pedido_productos = PedidoProductos::where('pedido_id', $id)->get();
 
-        return view('pedidos.edit', compact('pedido','productos'));
+		foreach($pedido_productos as $p){
+
+			$producto_datos = Productos::find($p->producto_id);
+
+			$productos[] = array(
+				'id' => $producto_datos->id,
+				'nombre' => $producto_datos->nombre,
+				'descripcion' => $producto_datos->descripcion,
+				'cantidad' => $p->cantidad,
+				'precio' => $producto_datos->precio
+			);
+
+		}
+
+		return view('pedidos.edit', compact('pedido','productos'));
 	}
 
 	/**
